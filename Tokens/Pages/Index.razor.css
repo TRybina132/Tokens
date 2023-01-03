@@ -1,3 +1,9 @@
+.main-container{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
 .container{
     display: flex;
     text-align: center;
@@ -10,4 +16,10 @@
 
 .item{
     text-align: center;
+}
+
+.item-question-sign{
+    text-align: center;
+    margin-bottom: 30px;
+    margin-top: 30px;
 }
