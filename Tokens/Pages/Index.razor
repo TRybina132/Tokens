@@ -2,14 +2,18 @@
 
 <div class="main-container">
     <div class="container">
-        <div class="item" @onclick="OnToken1Click">
-            <image src="img/token.svg"></image>
+        <div @onclick="OnToken1Click" class="item">
+            <MudTooltip Class="item" Text="@_token1" Color="Color.Primary" Placement="Placement.Right">
+                <image src="img/token.svg"></image>
+            </MudTooltip>
         </div>
         <div class="item-question-sign">
-            <image src="img/question.svg"></image>
+            <image src="@_currentIconPath"></image>
         </div>
-        <div class="item">
-            <image src="img/token.svg"></image>
+        <div @onclick="OnToken2Click" class="item">
+            <MudTooltip Text="@_token2" Color="Color.Primary" Placement="Placement.Right">
+                <image src="img/token.svg"></image>
+            </MudTooltip>
         </div>
     </div>
     <div class="action-menu">
