@@ -35,6 +35,7 @@
       <MtouchDebug>true</MtouchDebug>
       <CodesignKey>Apple Development: tryb2516@gmail.com (5PNLA7A8CP)</CodesignKey>
       <CodesignProvision>iOS Team Provisioning Profile: tokens.app</CodesignProvision>
+      <IOSDebugOverWiFi>true</IOSDebugOverWiFi>
     </PropertyGroup>
 
     <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
