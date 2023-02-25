@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tokens", "Tokens\Tokens.csproj", "{83A876C7-4B6E-4946-BA64-0AC67783E912}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Data\Data.csproj", "{37A54FC2-D277-4F61-BD5C-865501A00081}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{83A876C7-4B6E-4946-BA64-0AC67783E912}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{83A876C7-4B6E-4946-BA64-0AC67783E912}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{83A876C7-4B6E-4946-BA64-0AC67783E912}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37A54FC2-D277-4F61-BD5C-865501A00081}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37A54FC2-D277-4F61-BD5C-865501A00081}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37A54FC2-D277-4F61-BD5C-865501A00081}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37A54FC2-D277-4F61-BD5C-865501A00081}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

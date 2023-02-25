@@ -31,6 +31,27 @@
         <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
     </PropertyGroup>
 
+    <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+      <MtouchDebug>true</MtouchDebug>
+      <CodesignKey>Apple Development: tryb2516@gmail.com (5PNLA7A8CP)</CodesignKey>
+      <CodesignProvision>iOS Team Provisioning Profile: tokens.app</CodesignProvision>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+      <CodesignKey>Apple Development: Tanya Rybina (45AH776J2U)</CodesignKey>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net7.0-ios|AnyCPU'">
+      <CreatePackage>false</CreatePackage>
+      <CodesignProvision>iOS Team Provisioning Profile: tokens.app</CodesignProvision>
+      <CodesignKey>Apple Development: tryb2516@gmail.com (5PNLA7A8CP)</CodesignKey>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net7.0-ios|AnyCPU'">
+      <CreatePackage>false</CreatePackage>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net7.0-maccatalyst|AnyCPU'">
+      <CreatePackage>false</CreatePackage>
+    </PropertyGroup>
     <ItemGroup>
         <!-- App Icon -->
         <MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
@@ -40,9 +61,6 @@
 
         <!-- Images -->
         <MauiImage Include="Resources\Images\*" />
-        <MauiImage Update="Resources\Images\dotnet_bot.svg" BaseSize="168,208" />
-
-        <!-- Custom Fonts -->
         <MauiFont Include="Resources\Fonts\*" />
 
         <!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
@@ -51,7 +69,11 @@
 
     <ItemGroup>
         <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
-        <PackageReference Include="MudBlazor" Version="6.1.6" />
+        <PackageReference Include="MudBlazor" Version="6.1.8" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Services\Implementations" />
     </ItemGroup>
 
 </Project>
