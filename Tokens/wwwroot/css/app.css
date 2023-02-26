@@ -1,7 +1,22 @@
 ﻿@import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
 
+body {
+    position: fixed;
+    overflow: hidden;
+    top: 0;
+    touch-action: manipulation;
+    padding-bottom: env(safe-area-inset-bottom);
+    padding-bottom: constant(safe-area-inset-bottom);
+}
+
 html, body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+
+#app {
+    height: 100%;
 }
 
 h1:focus {
