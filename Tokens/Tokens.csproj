@@ -76,6 +76,13 @@
 
     <ItemGroup>
       <Folder Include="Services\Implementations" />
+      <Folder Include="Pages\Dialogs\" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\Data\Data.csproj" />
+    </ItemGroup>
+    <ItemGroup>
+      <None Remove="Pages\Dialogs\" />
+    </ItemGroup>
 </Project>

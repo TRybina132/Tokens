@@ -4,5 +4,11 @@ namespace Tokens.Services.Abstractions;
 
 public interface IStorageService<T>
 {
-    ValueTask<Result<T>> SaveToken();          
+    ValueTask<Result> SaveAsync(T model);
+
+    ValueTask<Result<T>> GetItemAsync(string id);
+
+    ValueTask<Result> UpdateItemAsync(string id, T newValue);
+
+    ValueTask<Result> DeleteAsync(string id);
 }

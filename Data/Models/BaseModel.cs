@@ -1,11 +1,6 @@
-﻿using System;
-namespace Data.Models
-{
-	public class BaseModel
-	{
-		public BaseModel()
-		{
-		}
-	}
-}
+﻿namespace Data.Models;
 
+public class BaseModel
+{
+	public string Id { get; set; }
+}
