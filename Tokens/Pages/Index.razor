@@ -1,20 +1,24 @@
 ﻿@page "/"
 
-    <div class="container">
-        <div @onclick="OnToken1Click" class="item">
-            <MudTooltip Class="item" Text="@_token1" Color="Color.Primary" Placement="Placement.Right">
-                <image src="img/token.svg"></image>
-            </MudTooltip>
-        </div>
-        <div class="item-question-sign">
-            <image src="@_currentIconPath"></image>
-        </div>
-        <div @onclick="OnToken2Click" class="item">
-            <MudTooltip Text="@_token2" Color="Color.Primary" Placement="Placement.Right">
-                <image src="img/token.svg"></image>
-            </MudTooltip>
-        </div>
+<div class="container">
+    <div @onclick="OnToken1Click" class="item">
+        <MudTooltip Class="item" Text="@_token1" Color="Color.Primary" Placement="Placement.Right">
+            <image src="img/token.svg"></image>
+        </MudTooltip>
     </div>
-    <div class="action-menu">
-        <div>@_token1</div>
+    <div class="item-question-sign">
+        <img src="@_currentIconPath"/>
     </div>
+    <div @onclick="OnToken2Click" class="item">
+        <MudTooltip Text="@_token2" Color="Color.Primary" Placement="Placement.Right">
+            <image src="img/token.svg"></image>
+        </MudTooltip>
+    </div>
+</div>
+<div class="action-menu">
+    <MudList Clickable="true" class = "act-list">
+        <MudListItem Text="Save token 1" Icon="@Icons.Material.Filled.Save" />
+        <MudListItem Text="Save token 2" Icon="@Icons.Material.Filled.Save" />
+        <MudListItem Text="Go to collection" Icon="@Icons.Material.Filled.List" />
+    </MudList>
+</div>

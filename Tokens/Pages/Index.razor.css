@@ -1,5 +1,4 @@
 .container{
-    
 }
 
 .item{
@@ -8,4 +7,8 @@
 
 .item-question-sign{
     text-align: center;
+}
+
+.act-list {
+    align-items: center !important;
 }
