@@ -24,4 +24,9 @@ public partial class Index
         _currentIconPath = _areEqual != null && _areEqual.Value ? "img/equal.svg" : "img/not-equal.svg";
         StateHasChanged();
     }
+
+    private async Task SaveToken(string tokenValue)
+    {
+
+    }
 }
