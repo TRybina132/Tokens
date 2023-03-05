@@ -1,6 +1,6 @@
-using ManagedCode.Communication;
+﻿using ManagedCode.Communication;
 
-namespace Tokens.Services.Abstractions;
+namespace DataStorage.Services.Abstractions;
 
 public interface IStorageService<T>
 {

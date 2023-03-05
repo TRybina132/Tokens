@@ -44,7 +44,6 @@ public partial class Index
         var dialog = await DialogService
             .ShowAsync<CreateTokenDialog>("Create token", parameters);
         var result = await dialog.Result;
-
-        Console.WriteLine("Saved");
+        Console.WriteLine("saved");
     }
 }

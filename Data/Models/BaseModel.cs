@@ -1,6 +1,9 @@
-﻿namespace Data.Models;
+﻿using SQLite;
+
+namespace Data.Models;
 
 public class BaseModel
 {
-	public string Id { get; set; }
+    [PrimaryKey, AutoIncrement, Column("Id")]
+    public string Id { get; set; }
 }
