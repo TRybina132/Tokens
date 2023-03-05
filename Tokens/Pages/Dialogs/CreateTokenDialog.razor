@@ -8,9 +8,13 @@
         </MudText>
     </TitleContent>
     <DialogContent>
-        <MudTextField Value="@Token.Name" Label="Token name"/>
-        <MudTextField Value="@Token.Notes" Label="Notes"/>
+        <MudTextField @bind-Value="@Token.Name" Label="Token name"/>
+        <MudTextField @bind-Value="@Token.Notes" Label="Notes"/>
     </DialogContent>
+    <DialogActions>
+        <MudButton OnClick="Cancel" Color="@Color.Error">Cancel</MudButton>
+        <MudButton OnClick="Save" Color="@Color.Success">Save</MudButton>
+    </DialogActions>
 </MudDialog>
 
 
@@ -20,4 +24,6 @@
     [Parameter] public Token Token { get; set; }
 
     private void Cancel() => MudDialog.Cancel();
+
+    private void Save() => MudDialog.Close(DialogResult.Ok(Token));
 }

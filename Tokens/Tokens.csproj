@@ -44,8 +44,8 @@
 
     <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net7.0-ios|AnyCPU'">
       <CreatePackage>false</CreatePackage>
-      <CodesignProvision>iOS Team Provisioning Profile: tokens.app</CodesignProvision>
-      <CodesignKey>Apple Development: tryb2516@gmail.com (5PNLA7A8CP)</CodesignKey>
+      <CodesignProvision>iOS Team Provisioning Profile: *</CodesignProvision>
+      <CodesignKey>Apple Development: Tanya Rybina (45AH776J2U)</CodesignKey>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net7.0-ios|AnyCPU'">
       <CreatePackage>false</CreatePackage>
@@ -72,6 +72,8 @@
         <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
         <PackageReference Include="MudBlazor" Version="6.1.9" />
         <PackageReference Include="ManagedCode.Communication" Version="2.0.16" />
+        <PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
+        <PackageReference Include="SQLitePCLRaw.provider.dynamic_cdecl" Version="2.1.4" />
     </ItemGroup>
 
     <ItemGroup>
