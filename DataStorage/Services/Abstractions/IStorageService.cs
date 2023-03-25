@@ -9,9 +9,17 @@ public interface IStorageService<T> : IDisposable
 
     Result<T> GetItemAsync(string id);
 
-    CollectionResult<T> GetAllItems(); 
-
     Result UpdateItemAsync(string id, T newValue);
 
     Result DeleteAsync(string id);
+
+    CollectionResult<T> GetAllItems();
+
+    Result<T> FirstOrDefault(Func<T, bool> query);
+
+    CollectionResult<T> Where(Func<T, bool> query);
+
+    CollectionResult<TOutput> Select<TOutput>(Func<T, TOutput> query);
+
+    CollectionResult<T> OrderBy<TProperty>(Func<T, TProperty> query);
 }
