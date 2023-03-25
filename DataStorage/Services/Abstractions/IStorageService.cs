@@ -7,7 +7,7 @@ public interface IStorageService<T> : IDisposable
 {
     Result Save(T model);
 
-    Result<T> GetItem(string id);
+    Result<T> GetItem(int id);
 
     Result UpdateItem(T newValue);
 
