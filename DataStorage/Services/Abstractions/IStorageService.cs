@@ -5,13 +5,13 @@ namespace DataStorage.Services.Abstractions;
 public interface IStorageService<T> : IDisposable
     where T : new()
 {
-    Result<int> SaveAsync(T model);
+    Result Save(T model);
 
-    Result<T> GetItemAsync(string id);
+    Result<T> GetItem(string id);
 
-    Result UpdateItemAsync(string id, T newValue);
+    Result UpdateItem(T newValue);
 
-    Result DeleteAsync(string id);
+    Result Delete(string id);
 
     CollectionResult<T> GetAllItems();
 

@@ -4,14 +4,18 @@ using DataStorage.Services.Abstractions;
 using ManagedCode.Communication;
 using Microsoft.Extensions.Options;
 using SQLite;
+using Data.Models;
 
 namespace DataStorage.Services;
 
 public abstract class StorageService<T> : IStorageService<T>
-        where T : new()
+        where T : BaseModel, new()
 {
     private readonly DatabaseSettings _databaseSettings;
     private readonly SQLiteConnection _sqliteConnection;
+
+    protected Result CheckIfOperationSuccessfull(int result) =>
+        result > 0 ? Result.Succeed() : Result.Fail();
 
     public StorageService(IOptions<DatabaseSettings> databaseOptions)
 	{
@@ -19,26 +23,35 @@ public abstract class StorageService<T> : IStorageService<T>
         _sqliteConnection = new SQLiteConnection(_databaseSettings.FilePath);
 	}
 
-    public Result DeleteAsync(string id)
+    public Result<T> GetItem(string id)
     {
-        throw new NotImplementedException();
+        var result = _sqliteConnection.Table<T>()
+            .FirstOrDefault(item => item.Id == id);
+
+        return result is not null ?
+            Result.Succeed(result)
+            : Result<T>.Fail("Not found");
     }
 
-    public Result<T> GetItemAsync(string id)
-    {
-        throw new NotImplementedException();
-    }
-
-    public Result<int> SaveAsync(T model)
+    public Result Save(T model)
     {
         var result = _sqliteConnection.Insert(model);
 
-        return result < 0 ? Result.Succeed(result) : Result.Fail();
+        return CheckIfOperationSuccessfull(result);
     }
 
-    public Result UpdateItemAsync(string id, T newValue)
+    public Result UpdateItem(T newValue)
     {
-        throw new NotImplementedException();
+        var result = _sqliteConnection.Update(newValue);
+
+        return CheckIfOperationSuccessfull(result);
+    }
+
+    public Result Delete(string id)
+    {
+        var result = _sqliteConnection.Delete<T>(id);
+
+        return CheckIfOperationSuccessfull(result);
     }
 
     public CollectionResult<T> GetAllItems()
