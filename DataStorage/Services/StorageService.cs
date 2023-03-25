@@ -41,11 +41,11 @@ public abstract class StorageService<T> : IStorageService<T>
         throw new NotImplementedException();
     }
 
-    public Result<List<T>> GetAllItems()
+    public CollectionResult<T> GetAllItems()
     {
         var items = _sqliteConnection.Table<T>().ToList();
 
-        return Result.Succeed();
+        return CollectionResult<T>.Succeed(items);
     }
 
     public void Dispose()

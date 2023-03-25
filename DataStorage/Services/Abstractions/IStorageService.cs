@@ -9,7 +9,7 @@ public interface IStorageService<T> : IDisposable
 
     Result<T> GetItemAsync(string id);
 
-    Result<List<T>> GetAllItems(); 
+    CollectionResult<T> GetAllItems(); 
 
     Result UpdateItemAsync(string id, T newValue);
 
