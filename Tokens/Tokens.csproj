@@ -81,6 +81,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\Data\Data.csproj" />
+      <ProjectReference Include="..\DataStorage\DataStorage.csproj" />
     </ItemGroup>
     <ItemGroup>
       <None Remove="Pages\Dialogs\" />
