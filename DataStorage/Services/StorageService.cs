@@ -8,6 +8,7 @@ using SQLite;
 namespace DataStorage.Services;
 
 public abstract class StorageService<T> : IStorageService<T>
+        where T : new()
 {
     private readonly DatabaseSettings _databaseSettings;
     private readonly SQLiteConnection _sqliteConnection;
@@ -18,23 +19,38 @@ public abstract class StorageService<T> : IStorageService<T>
         _sqliteConnection = new SQLiteConnection(_databaseSettings.FilePath);
 	}
 
-    public ValueTask<Result> DeleteAsync(string id)
+    public Result DeleteAsync(string id)
     {
         throw new NotImplementedException();
     }
 
-    public ValueTask<Result<T>> GetItemAsync(string id)
+    public Result<T> GetItemAsync(string id)
     {
         throw new NotImplementedException();
     }
 
-    public ValueTask<Result> SaveAsync(T model)
+    public Result<int> SaveAsync(T model)
+    {
+        var result = _sqliteConnection.Insert(model);
+
+        return result < 0 ? Result.Succeed(result) : Result.Fail();
+    }
+
+    public Result UpdateItemAsync(string id, T newValue)
     {
         throw new NotImplementedException();
     }
 
-    public ValueTask<Result> UpdateItemAsync(string id, T newValue)
+    public Result<List<T>> GetAllItems()
     {
-        throw new NotImplementedException();
+        var items = _sqliteConnection.Table<T>().ToList();
+
+        return Result.Succeed();
+    }
+
+    public void Dispose()
+    {
+        _sqliteConnection.Close();
+        _sqliteConnection.Dispose();
     }
 }

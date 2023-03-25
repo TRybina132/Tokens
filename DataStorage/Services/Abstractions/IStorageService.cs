@@ -2,13 +2,16 @@
 
 namespace DataStorage.Services.Abstractions;
 
-public interface IStorageService<T>
+public interface IStorageService<T> : IDisposable
+    where T : new()
 {
-    ValueTask<Result> SaveAsync(T model);
+    Result<int> SaveAsync(T model);
 
-    ValueTask<Result<T>> GetItemAsync(string id);
+    Result<T> GetItemAsync(string id);
 
-    ValueTask<Result> UpdateItemAsync(string id, T newValue);
+    Result<List<T>> GetAllItems(); 
 
-    ValueTask<Result> DeleteAsync(string id);
+    Result UpdateItemAsync(string id, T newValue);
+
+    Result DeleteAsync(string id);
 }
