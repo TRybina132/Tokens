@@ -3,6 +3,7 @@ using Microsoft.JSInterop;
 using MudBlazor;
 using Data.Models;
 using Tokens.Pages.Dialogs;
+using DataStorage.Services.Abstractions;
 
 namespace Tokens.Pages;
 
@@ -15,6 +16,9 @@ public partial class Index
 
     [Inject]
     protected IDialogService DialogService { get; set; }
+
+    [Inject]
+    ITokenStorageService TokenStorageService { get; set; }
 
     private void CompareTokens() =>
         _areEqual = _token1.Equals(_token2);
@@ -44,6 +48,10 @@ public partial class Index
         var dialog = await DialogService
             .ShowAsync<CreateTokenDialog>("Create token", parameters);
         var result = await dialog.Result;
-        Console.WriteLine("saved");
+        if (result.Canceled is false)
+        {
+            var res = TokenStorageService.Save(token);
+            Console.WriteLine("saved");
+        }
     }
 }

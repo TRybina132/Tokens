@@ -21,7 +21,7 @@ public static class MauiProgram
 
         builder.Services.Configure<DatabaseSettings>(settings =>
         {
-            settings.FilePath = FileSystem.Current + "/tokens.sqlite";
+            settings.FilePath = FileSystem.Current.AppDataDirectory + "/tokens.sqlite";
         });
 
         builder.Services.AddScoped<ITokenStorageService, TokenStorageService>();
