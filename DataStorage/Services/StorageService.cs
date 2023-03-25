@@ -19,8 +19,15 @@ public abstract class StorageService<T> : IStorageService<T>
 
     public StorageService(IOptions<DatabaseSettings> databaseOptions)
 	{
-        _databaseSettings = databaseOptions.Value;
-        _sqliteConnection = new SQLiteConnection(_databaseSettings.FilePath);
+        try
+        {
+            _databaseSettings = databaseOptions.Value;
+            _sqliteConnection = new SQLiteConnection(_databaseSettings.FilePath);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
 	}
 
     public Result<T> GetItem(string id)
