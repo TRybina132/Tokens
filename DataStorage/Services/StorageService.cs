@@ -19,11 +19,19 @@ public abstract class StorageService<T> : IStorageService<T>
 
     public StorageService(IOptions<DatabaseSettings> databaseOptions)
 	{
-        _databaseSettings = databaseOptions.Value;
-        _sqliteConnection = new SQLiteConnection(_databaseSettings.FilePath);
+        try
+        {
+            _databaseSettings = databaseOptions.Value;
+            _sqliteConnection = new SQLiteConnection(_databaseSettings.FilePath);
+            _sqliteConnection.CreateTable<T>();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
 	}
 
-    public Result<T> GetItem(string id)
+    public Result<T> GetItem(int id)
     {
         var result = _sqliteConnection.Table<T>()
             .FirstOrDefault(item => item.Id == id);
@@ -35,9 +43,16 @@ public abstract class StorageService<T> : IStorageService<T>
 
     public Result Save(T model)
     {
-        var result = _sqliteConnection.Insert(model);
+        try
+        {
+            var result = _sqliteConnection.Insert(model);
 
-        return CheckIfOperationSuccessfull(result);
+            return CheckIfOperationSuccessfull(result);
+        }
+        catch (Exception ex)
+        {
+            return Result.Fail(ex.Message);
+        }
     }
 
     public Result UpdateItem(T newValue)

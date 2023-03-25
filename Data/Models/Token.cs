@@ -13,7 +13,5 @@ public class Token : BaseModel
 
     public string Notes { get; set; }
 
-    public List<string> Tags { get; set; }
-
     public DateTime CreationDate { get; set; } = DateTime.Now;
 }
