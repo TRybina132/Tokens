@@ -20,6 +20,9 @@ public partial class Index
     [Inject]
     ITokenStorageService TokenStorageService { get; set; }
 
+    [Inject]
+    NavigationManager NavManager { get; set; }
+
     private void CompareTokens() =>
         _areEqual = _token1.Equals(_token2);
 
@@ -54,4 +57,7 @@ public partial class Index
             Console.WriteLine("saved");
         }
     }
+
+    private void GoToCollection() =>
+        NavManager.NavigateTo("/TokenList");
 }
