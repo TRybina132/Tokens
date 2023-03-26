@@ -17,8 +17,12 @@
 </div>
 <div class="action-menu">
     <MudList Clickable="true" class = "act-list">
-        <MudListItem Text="Save token 1" Icon="@Icons.Material.Filled.Save" />
-        <MudListItem Text="Save token 2" Icon="@Icons.Material.Filled.Save" />
+        <MudListItem Text="Save token 1"
+                     Icon="@Icons.Material.Filled.Save"
+                     @onclick = "async () => await SaveToken(_token1)"/>
+        <MudListItem Text="Save token 2"
+                     Icon="@Icons.Material.Filled.Save"
+                     @onclick = "async () => await SaveToken(_token2)"/>
         <MudListItem Text="Go to collection" Icon="@Icons.Material.Filled.List" />
     </MudList>
 </div>

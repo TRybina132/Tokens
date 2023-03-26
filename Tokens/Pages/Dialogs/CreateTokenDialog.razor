@@ -1,0 +1,29 @@
+﻿@using Data.Models;
+
+<MudDialog>
+    <TitleContent>
+        <MudText Typo="Typo.h6">
+            <MudIcon Icon="@Icons.Material.Filled.Add"/>
+            Add token to collection
+        </MudText>
+    </TitleContent>
+    <DialogContent>
+        <MudTextField @bind-Value="@Token.Name" Label="Token name"/>
+        <MudTextField @bind-Value="@Token.Notes" Label="Notes"/>
+    </DialogContent>
+    <DialogActions>
+        <MudButton OnClick="Cancel" Color="@Color.Error">Cancel</MudButton>
+        <MudButton OnClick="Save" Color="@Color.Success">Save</MudButton>
+    </DialogActions>
+</MudDialog>
+
+
+@code {
+    [CascadingParameter] MudDialogInstance MudDialog { get; set; }
+
+    [Parameter] public Token Token { get; set; }
+
+    private void Cancel() => MudDialog.Cancel();
+
+    private void Save() => MudDialog.Close(DialogResult.Ok(Token));
+}
