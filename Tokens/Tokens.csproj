@@ -44,8 +44,8 @@
 
     <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net7.0-ios|AnyCPU'">
       <CreatePackage>false</CreatePackage>
-      <CodesignProvision>iOS Team Provisioning Profile: tokens.app</CodesignProvision>
-      <CodesignKey>Apple Development: tryb2516@gmail.com (5PNLA7A8CP)</CodesignKey>
+      <CodesignProvision>iOS Team Provisioning Profile: *</CodesignProvision>
+      <CodesignKey>Apple Development: Tanya Rybina (45AH776J2U)</CodesignKey>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net7.0-ios|AnyCPU'">
       <CreatePackage>false</CreatePackage>
@@ -70,11 +70,20 @@
 
     <ItemGroup>
         <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
-        <PackageReference Include="MudBlazor" Version="6.1.8" />
+        <PackageReference Include="MudBlazor" Version="6.2.0" />
+        <PackageReference Include="ManagedCode.Communication" Version="2.0.19" />
     </ItemGroup>
 
     <ItemGroup>
       <Folder Include="Services\Implementations" />
+      <Folder Include="Pages\Dialogs\" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\Data\Data.csproj" />
+      <ProjectReference Include="..\DataStorage\DataStorage.csproj" />
+    </ItemGroup>
+    <ItemGroup>
+      <None Remove="Pages\Dialogs\" />
+    </ItemGroup>
 </Project>
