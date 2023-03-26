@@ -640,3 +640,5 @@ MigrationBackup/
 
 # End of https://www.toptal.com/developers/gitignore/api/windows,linux,macos,visualstudio,visualstudiocode,rider,jetbrains+all,xamarinstudio,openframeworks+visualstudio
 /coveragereport
+.vs
+DataStorage/obj
