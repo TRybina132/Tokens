@@ -23,6 +23,8 @@
         <MudListItem Text="Save token 2"
                      Icon="@Icons.Material.Filled.Save"
                      @onclick = "async () => await SaveToken(_token2)"/>
-        <MudListItem Text="Go to collection" Icon="@Icons.Material.Filled.List" />
+        <MudListItem Text="Go to collection"
+                     Icon="@Icons.Material.Filled.List"
+                     @onclick = "GoToCollection"/>
     </MudList>
 </div>
