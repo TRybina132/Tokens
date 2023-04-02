@@ -1,6 +1,18 @@
-@page "/token/{id}"
-<h3>TokenDetails</h3>
+@page "/token/{Id}"
 
-@code {
-    
-}
+<MudToolBar>
+    <MudIconButton Icon="@Icons.Material.Filled.ArrowBackIos" OnClick="GoBack">
+        Go back
+    </MudIconButton>
+</MudToolBar>
+<MudCard>
+    <MudText Typo="Typo.h4">
+        @_token.Name
+    </MudText>
+    <MudText Typo="Typo.h4">
+        @_token.CreationDate
+    </MudText>
+    <MudText Typo="Typo.h4">
+        @_token.Notes
+    </MudText>
+</MudCard>

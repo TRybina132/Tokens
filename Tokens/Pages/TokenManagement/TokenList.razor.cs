@@ -15,6 +15,11 @@ public partial class TokenList
     [Inject]
     ITokenStorageService TokenStorageService { get; set; }
 
+    [Inject]
+    NavigationManager NavManager { get; set; }
+
+    private Token _selectedToken;
+
     protected override void OnInitialized()
     {
         var result = TokenStorageService.GetAllItems();
@@ -22,5 +27,17 @@ public partial class TokenList
         {
             _tokens = result.Collection.ToList();
         }
+    }
+
+    private void GoBack() =>
+        NavManager.NavigateTo("/");
+
+    private void GoToTokenDetails() =>
+        NavManager.NavigateTo($"/token/{_selectedToken.Id}");
+
+    private string SelectRow(Token token, int rowNumber)
+    {
+        _selectedToken = token;
+        return string.Empty;
     }
 }

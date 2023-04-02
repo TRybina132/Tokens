@@ -1,6 +1,18 @@
 @page "/TokenList"
 
-<MudTable Items="@_tokens" Hover="true" Striped="true">
+@using Data.Models
+
+<MudToolBar>
+    <MudIconButton Icon="@Icons.Material.Filled.ArrowBackIos" OnClick="GoBack">
+        Go back
+    </MudIconButton>
+</MudToolBar>
+
+<MudTable Items="@_tokens" Hover="true"
+          Striped="true"
+          RowClassFunc="SelectRow"
+          T="Token"
+          OnRowClick="GoToTokenDetails">
     <ToolBarContent>
         <MudText Typo="Typo.h6">Saved tokens</MudText>
     </ToolBarContent>
